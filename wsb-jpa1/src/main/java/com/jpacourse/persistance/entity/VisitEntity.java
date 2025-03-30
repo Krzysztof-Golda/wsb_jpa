@@ -1,6 +1,7 @@
 package com.jpacourse.persistance.entity;
 
 import java.time.LocalDateTime;
+import java.util.List;
 
 import jakarta.persistence.*;
 
@@ -12,10 +13,25 @@ public class VisitEntity {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 
+	@Column(nullable = false)
 	private String description;
 
 	@Column(nullable = false)
 	private LocalDateTime time;
+
+	@ManyToOne
+	@JoinColumn(name = "DOCTOR_ID", nullable = false)
+	private DoctorEntity doctor;
+
+	@ManyToOne
+	@JoinColumn(name = "PATIENT_ID", nullable = false)
+	private PatientEntity patient;
+
+	@OneToMany(fetch = FetchType.LAZY)
+	@JoinColumn(name = "VISIT_ID")
+	private List<MedicalTreatmentEntity> treatments;
+
+	public VisitEntity() {}
 
 	public Long getId() {
 		return id;

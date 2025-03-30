@@ -1,6 +1,7 @@
 package com.jpacourse.persistance.entity;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
 
 import jakarta.persistence.*;
 
@@ -21,6 +22,7 @@ public class PatientEntity {
 	@Column(nullable = false)
 	private String telephoneNumber;
 
+	@Column(nullable = false)
 	private String email;
 
 	@Column(nullable = false)
@@ -28,6 +30,13 @@ public class PatientEntity {
 
 	@Column(nullable = false)
 	private LocalDate dateOfBirth;
+
+	@OneToMany(fetch = FetchType.LAZY)
+	@JoinColumn(name = "PATIENT_ID")
+	private ArrayList<AddressEntity> adresses;
+
+	public PatientEntity() {
+	}
 
 	public Long getId() {
 		return id;

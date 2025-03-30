@@ -15,8 +15,15 @@ public class MedicalTreatmentEntity {
 	@Column(nullable = false)
 	private String description;
 
+	@Column(nullable = false)
 	@Enumerated(EnumType.STRING)
 	private TreatmentType type;
+
+	@ManyToOne
+	@JoinColumn(name = "VISIT_ID", nullable = false)
+	private VisitEntity visit;
+
+	public MedicalTreatmentEntity() {}
 
 	public Long getId() {
 		return id;
