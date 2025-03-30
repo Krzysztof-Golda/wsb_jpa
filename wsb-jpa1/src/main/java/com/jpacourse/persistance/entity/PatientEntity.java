@@ -35,8 +35,10 @@ public class PatientEntity {
 	@JoinColumn(name = "PATIENT_ID")
 	private ArrayList<AddressEntity> adresses;
 
-	public PatientEntity() {
-	}
+	@OneToMany(fetch = FetchType.LAZY)
+	@JoinColumn(name = "PATIENT_ID")
+	private ArrayList<VisitEntity> visits;
+
 
 	public Long getId() {
 		return id;

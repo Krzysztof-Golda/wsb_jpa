@@ -1,6 +1,7 @@
 package com.jpacourse.persistance.entity;
 
 import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.List;
 
 import jakarta.persistence.*;
@@ -29,7 +30,7 @@ public class VisitEntity {
 
 	@OneToMany(fetch = FetchType.LAZY)
 	@JoinColumn(name = "VISIT_ID")
-	private List<MedicalTreatmentEntity> treatments;
+	private ArrayList<MedicalTreatmentEntity> treatments;
 
 	public VisitEntity() {}
 

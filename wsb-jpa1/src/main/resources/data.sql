@@ -1,5 +1,5 @@
-INSERT INTO PATIENT (id, firstName, lastName, telephoneNumber, email, patientNumber, dateOfBirth) VALUES
-(1, 'Jan', 'Kowalski', '123-456-789', 'jan.kowalski@example.com', 'P1001'),
+INSERT INTO patient (id, first_name, last_name, telephone_number, email, patient_number, date_of_birth) VALUES
+(1, 'Jan', 'Kowalski', '123-456-789', 'jan.kowalski@example.com', 'P1001', '1990-08-11'),
 (2, 'Anna', 'Nowak', '987-654-321', 'anna.nowak@example.com', 'P1002', '1990-07-25'),
 (3, 'Piotr', 'Wiśniewski', '555-123-456', 'piotr.wis@example.com', 'P1003', '1978-11-05'),
 (4, 'Katarzyna', 'Dąbrowska', '666-777-888', 'kasia.dab@example.com', 'P1004', '2000-01-30'),
@@ -10,7 +10,7 @@ INSERT INTO PATIENT (id, firstName, lastName, telephoneNumber, email, patientNum
 (9, 'Grzegorz', 'Nowicki', '333-444-555', 'grzegorz.now@example.com', 'P1009', '1982-08-18'),
 (10, 'Aleksandra', 'Lis', '222-333-444', 'aleksandra.lis@example.com', 'P1010', '2001-04-28');
 
-INSERT INTO ADDRESS (id, city, addressLine1, addressLine2, postalCode, PATIENT_ID) VALUES
+INSERT INTO address (id, city, address_line1, address_line2, postal_code, patient_id) VALUES
 (1, 'Warszawa', 'ul. Piękna 10', 'mieszkanie 5', '00-001', 1),
 (2, 'Kraków', 'ul. Długa 15', NULL, '31-002', 2),
 (3, 'Łódź', 'ul. Główna 22', 'blok 3', '90-003', 3),
@@ -22,19 +22,19 @@ INSERT INTO ADDRESS (id, city, addressLine1, addressLine2, postalCode, PATIENT_I
 (9, 'Lublin', 'ul. Lubelska 18', NULL, '20-009', 9),
 (10, 'Bydgoszcz', 'ul. Kujawska 21', 'mieszkanie 2', '85-010', 10);
 
-INSERT INTO DOCTOR (id, firstName, lastName, telephoneNumber, email, doctorNumber, specialization) VALUES
-(1, 'Adam', 'Kowalski', '111-222-333', 'adam.kowalski@example.com', 'D2001', 'Kardiologia'),
-(2, 'Ewa', 'Nowak', '222-333-444', 'ewa.nowak@example.com', 'D2002', 'Neurologia'),
-(3, 'Michał', 'Wiśniewski', '333-444-555', 'michal.wis@example.com', 'D2003', 'Ortopedia'),
-(4, 'Joanna', 'Dąbrowska', '444-555-666', 'joanna.dab@example.com', 'D2004', 'Pediatria'),
-(5, 'Tomasz', 'Wójcik', '555-666-777', 'tomasz.woj@example.com', 'D2005', 'Dermatologia'),
-(6, 'Agnieszka', 'Zając', '666-777-888', 'agnieszka.zaj@example.com', 'D2006', 'Chirurgia'),
-(7, 'Piotr', 'Lewandowski', '777-888-999', 'piotr.lew@example.com', 'D2007', 'Endokrynologia'),
-(8, 'Karolina', 'Kamińska', '888-999-000', 'karolina.kam@example.com', 'D2008', 'Pulmonologia'),
-(9, 'Grzegorz', 'Nowicki', '999-000-111', 'grzegorz.now@example.com', 'D2009', 'Oftalmologia'),
-(10, 'Paulina', 'Lis', '000-111-222', 'paulina.lis@example.com', 'D2010', 'Urologia');
+INSERT INTO doctor (id, first_name, last_name, telephone_number, email, doctor_number, specialization, address_id) VALUES
+(1, 'Adam', 'Kowalski', '111-222-333', 'adam.kowalski@example.com', 'D2001', 'DERMATOLOGIST', 1),
+(2, 'Ewa', 'Nowak', '222-333-444', 'ewa.nowak@example.com', 'D2002', 'GP', 2),
+(3, 'Michał', 'Wiśniewski', '333-444-555', 'michal.wis@example.com', 'D2003', 'OCULIST', 3),
+(4, 'Joanna', 'Dąbrowska', '444-555-666', 'joanna.dab@example.com', 'D2004', 'DERMATOLOGIST', 4),
+(5, 'Tomasz', 'Wójcik', '555-666-777', 'tomasz.woj@example.com', 'D2005', 'OCULIST', 5),
+(6, 'Agnieszka', 'Zając', '666-777-888', 'agnieszka.zaj@example.com', 'D2006', 'SURGEON', 6),
+(7, 'Piotr', 'Lewandowski', '777-888-999', 'piotr.lew@example.com', 'D2007', 'DERMATOLOGIST', 7),
+(8, 'Karolina', 'Kamińska', '888-999-000', 'karolina.kam@example.com', 'D2008', 'SURGEON', 8),
+(9, 'Grzegorz', 'Nowicki', '999-000-111', 'grzegorz.now@example.com', 'D2009', 'GP', 9),
+(10, 'Paulina', 'Lis', '000-111-222', 'paulina.lis@example.com', 'D2010', 'DERMATOLOGIST', 10);
 
-INSERT INTO VISIT (id, description, time, DOCTOR_ID, PATIENT_ID) VALUES
+INSERT INTO visit (id, description, time, doctor_id, patient_id) VALUES
 (1, 'Kontrola ciśnienia', '2025-04-01 10:00:00', 1, 1),
 (2, 'Ból głowy', '2025-04-02 11:00:00', 2, 2),
 (3, 'Złamanie ręki', '2025-04-03 12:00:00', 3, 3),
@@ -46,14 +46,14 @@ INSERT INTO VISIT (id, description, time, DOCTOR_ID, PATIENT_ID) VALUES
 (9, 'Badanie wzroku', '2025-04-09 18:00:00', 9, 9),
 (10, 'Ból nerek', '2025-04-10 19:00:00', 10, 10);
 
-INSERT INTO MEDICAL_TREATMENT (id, description, type, VISIT_ID) VALUES
-(1, 'Leki na nadciśnienie', 'Farmakoterapia', 1),
-(2, 'Tomografia głowy', 'Diagnostyka', 2),
-(3, 'Gipsowanie ręki', 'Ortopedia', 3),
-(4, 'Szczepionka MMR', 'Immunizacja', 4),
-(5, 'Maść na egzemę', 'Farmakoterapia', 5),
-(6, 'Laserowe usunięcie', 'Chirurgia', 6),
-(7, 'Badanie poziomu hormonów', 'Diagnostyka', 7),
-(8, 'Inhalacje', 'Pulmonologia', 8),
-(9, 'Dobór okularów', 'Oftalmologia', 9),
-(10, 'USG nerek', 'Diagnostyka', 10);
+INSERT INTO medical_treatment (id, description, type, visit_id) VALUES
+(1, 'Leki na nadciśnienie', 'EKG', 1),
+(2, 'Tomografia głowy', 'RTG', 2),
+(3, 'Gipsowanie ręki', 'USG', 3),
+(4, 'Szczepionka MMR', 'EKG', 4),
+(5, 'Maść na egzemę', 'RTG', 5),
+(6, 'Laserowe usunięcie', 'EKG', 6),
+(7, 'Badanie poziomu hormonów', 'USG', 7),
+(8, 'Inhalacje', 'EKG', 8),
+(9, 'Dobór okularów', 'RTG', 9),
+(10, 'USG nerek', 'EKG', 10);
