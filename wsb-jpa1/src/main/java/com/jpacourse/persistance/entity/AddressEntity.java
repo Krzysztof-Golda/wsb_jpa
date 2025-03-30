@@ -27,6 +27,11 @@ public class AddressEntity {
 	@JoinColumn(name = "PATIENT_ID", nullable = false)
 	private PatientEntity patient;
 
+	@ManyToOne
+	@JoinColumn(name = "DOCTOR_ID", nullable = false)
+	private PatientEntity doctor;
+
+
 	public Long getId() {
 		return id;
 	}

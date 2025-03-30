@@ -10,29 +10,29 @@ INSERT INTO patient (id, first_name, last_name, telephone_number, email, patient
 (9, 'Grzegorz', 'Nowicki', '333-444-555', 'grzegorz.now@example.com', 'P1009', '1982-08-18'),
 (10, 'Aleksandra', 'Lis', '222-333-444', 'aleksandra.lis@example.com', 'P1010', '2001-04-28');
 
-INSERT INTO address (id, city, address_line1, address_line2, postal_code, patient_id) VALUES
-(1, 'Warszawa', 'ul. Piękna 10', 'mieszkanie 5', '00-001', 1),
-(2, 'Kraków', 'ul. Długa 15', NULL, '31-002', 2),
-(3, 'Łódź', 'ul. Główna 22', 'blok 3', '90-003', 3),
-(4, 'Gdańsk', 'ul. Morska 5', NULL, '80-004', 4),
-(5, 'Poznań', 'ul. Rynek 7', 'lokal 1', '61-005', 5),
-(6, 'Wrocław', 'ul. Kościuszki 12', NULL, '50-006', 6),
-(7, 'Katowice', 'ul. Słoneczna 8', NULL, '40-007', 7),
-(8, 'Szczecin', 'ul. Żeglarska 3', 'dom jednorodzinny', '70-008', 8),
-(9, 'Lublin', 'ul. Lubelska 18', NULL, '20-009', 9),
-(10, 'Bydgoszcz', 'ul. Kujawska 21', 'mieszkanie 2', '85-010', 10);
+INSERT INTO address (id, city, address_line1, address_line2, postal_code, patient_id, doctor_id) VALUES
+(1, 'Warszawa', 'ul. Piękna 10', 'mieszkanie 5', '00-001', 1, 2),
+(2, 'Kraków', 'ul. Długa 15', NULL, '31-002', 2, 3),
+(3, 'Łódź', 'ul. Główna 22', 'blok 3', '90-003', 3, 4),
+(4, 'Gdańsk', 'ul. Morska 5', NULL, '80-004', 4, 5),
+(5, 'Poznań', 'ul. Rynek 7', 'lokal 1', '61-005', 5, 6),
+(6, 'Wrocław', 'ul. Kościuszki 12', NULL, '50-006', 6, 7),
+(7, 'Katowice', 'ul. Słoneczna 8', NULL, '40-007', 7, 8),
+(8, 'Szczecin', 'ul. Żeglarska 3', 'dom jednorodzinny', '70-008', 8, 9),
+(9, 'Lublin', 'ul. Lubelska 18', NULL, '20-009', 9, 10),
+(10, 'Bydgoszcz', 'ul. Kujawska 21', 'mieszkanie 2', '85-010', 10, 1);
 
-INSERT INTO doctor (id, first_name, last_name, telephone_number, email, doctor_number, specialization, address_id) VALUES
-(1, 'Adam', 'Kowalski', '111-222-333', 'adam.kowalski@example.com', 'D2001', 'DERMATOLOGIST', 1),
-(2, 'Ewa', 'Nowak', '222-333-444', 'ewa.nowak@example.com', 'D2002', 'GP', 2),
-(3, 'Michał', 'Wiśniewski', '333-444-555', 'michal.wis@example.com', 'D2003', 'OCULIST', 3),
-(4, 'Joanna', 'Dąbrowska', '444-555-666', 'joanna.dab@example.com', 'D2004', 'DERMATOLOGIST', 4),
-(5, 'Tomasz', 'Wójcik', '555-666-777', 'tomasz.woj@example.com', 'D2005', 'OCULIST', 5),
-(6, 'Agnieszka', 'Zając', '666-777-888', 'agnieszka.zaj@example.com', 'D2006', 'SURGEON', 6),
-(7, 'Piotr', 'Lewandowski', '777-888-999', 'piotr.lew@example.com', 'D2007', 'DERMATOLOGIST', 7),
-(8, 'Karolina', 'Kamińska', '888-999-000', 'karolina.kam@example.com', 'D2008', 'SURGEON', 8),
-(9, 'Grzegorz', 'Nowicki', '999-000-111', 'grzegorz.now@example.com', 'D2009', 'GP', 9),
-(10, 'Paulina', 'Lis', '000-111-222', 'paulina.lis@example.com', 'D2010', 'DERMATOLOGIST', 10);
+INSERT INTO doctor (id, first_name, last_name, telephone_number, email, doctor_number, specialization) VALUES
+(1, 'Adam', 'Kowalski', '111-222-333', 'adam.kowalski@example.com', 'D2001', 'DERMATOLOGIST'),
+(2, 'Ewa', 'Nowak', '222-333-444', 'ewa.nowak@example.com', 'D2002', 'GP'),
+(3, 'Michał', 'Wiśniewski', '333-444-555', 'michal.wis@example.com', 'D2003', 'OCULIST'),
+(4, 'Joanna', 'Dąbrowska', '444-555-666', 'joanna.dab@example.com', 'D2004', 'DERMATOLOGIST'),
+(5, 'Tomasz', 'Wójcik', '555-666-777', 'tomasz.woj@example.com', 'D2005', 'OCULIST'),
+(6, 'Agnieszka', 'Zając', '666-777-888', 'agnieszka.zaj@example.com', 'D2006', 'SURGEON'),
+(7, 'Piotr', 'Lewandowski', '777-888-999', 'piotr.lew@example.com', 'D2007', 'DERMATOLOGIST'),
+(8, 'Karolina', 'Kamińska', '888-999-000', 'karolina.kam@example.com', 'D2008', 'SURGEON'),
+(9, 'Grzegorz', 'Nowicki', '999-000-111', 'grzegorz.now@example.com', 'D2009', 'GP'),
+(10, 'Paulina', 'Lis', '000-111-222', 'paulina.lis@example.com', 'D2010', 'DERMATOLOGIST');
 
 INSERT INTO visit (id, description, time, doctor_id, patient_id) VALUES
 (1, 'Kontrola ciśnienia', '2025-04-01 10:00:00', 1, 1),

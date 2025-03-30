@@ -36,9 +36,9 @@ public class DoctorEntity {
 
 
 	// RELACJE
-	@OneToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY, optional = false)
-	@JoinColumn(name = "Address_ID", referencedColumnName = "ID")
-	private AddressEntity address;
+	@OneToMany(fetch = FetchType.LAZY)
+	@JoinColumn(name = "DOCTOR_ID")
+	private ArrayList<AddressEntity> adresses;
 
 	@OneToMany(fetch = FetchType.LAZY)
 	@JoinColumn(name = "DOCTOR_ID")
