@@ -31,11 +31,11 @@ public class PatientEntity {
 	@Column(nullable = false)
 	private LocalDate dateOfBirth;
 
-	@OneToMany(fetch = FetchType.LAZY)
-	@JoinColumn(name = "PATIENT_ID")
-	private ArrayList<AddressEntity> adresses;
+	@OneToOne(cascade = CascadeType.ALL)
+	@JoinColumn(name = "ADDRESS_ID", nullable = false)
+	private AddressEntity address;
 
-	@OneToMany(fetch = FetchType.LAZY)
+	@OneToMany(cascade = CascadeType.ALL)
 	@JoinColumn(name = "PATIENT_ID")
 	private ArrayList<VisitEntity> visits;
 
@@ -96,4 +96,19 @@ public class PatientEntity {
 		this.dateOfBirth = dateOfBirth;
 	}
 
+	public AddressEntity getAddress() {
+		return address;
+	}
+
+	public void setAddress(AddressEntity addresses) {
+		this.address = addresses;
+	}
+
+	public ArrayList<VisitEntity> getVisits() {
+		return visits;
+	}
+
+	public void setVisits(ArrayList<VisitEntity> visits) {
+		this.visits = visits;
+	}
 }

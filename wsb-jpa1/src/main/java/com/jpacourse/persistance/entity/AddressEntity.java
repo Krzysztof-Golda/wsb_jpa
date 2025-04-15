@@ -23,12 +23,10 @@ public class AddressEntity {
 	@Column(nullable = false)
 	private String postalCode;
 
-	@ManyToOne
-	@JoinColumn(name = "PATIENT_ID", nullable = false)
+	@OneToOne
 	private PatientEntity patient;
 
-	@ManyToOne
-	@JoinColumn(name = "DOCTOR_ID", nullable = false)
+	@OneToOne
 	private PatientEntity doctor;
 
 
@@ -76,4 +74,19 @@ public class AddressEntity {
 		this.postalCode = postalCode;
 	}
 
+	public PatientEntity getPatient() {
+		return patient;
+	}
+
+	public void setPatient(PatientEntity patient) {
+		this.patient = patient;
+	}
+
+	public PatientEntity getDoctor() {
+		return doctor;
+	}
+
+	public void setDoctor(PatientEntity doctor) {
+		this.doctor = doctor;
+	}
 }
